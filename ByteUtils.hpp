@@ -1,6 +1,29 @@
 #ifndef _BYTEUTILS
 #define _BYTEUTILS
 
+/*
+ * ByteUtils: Simple and efficient utilities for working with byte-oriented data
+ * Copyright (C) 2025 Alan Tseng
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+ * SOFTWARE.
+*/
+
 #include <array>
 #include <concepts>
 #include <cstddef>
@@ -150,7 +173,7 @@ template <Bytes T1, Bytes T2> bool equal(const T1 &a, const T2 &b) noexcept {
 template <Bytes A, Bytes B> int compare(const A &a, const B &b) {
   auto n = bytes_size(a);
   if (n != bytes_size(b)) {
-    throw std::invalid_argument("byte container sizes do not match");
+    throw std::invalid_argument("Byte container sizes do not match");
   }
   return std::memcmp(bytes_data(a), bytes_data(b), n);
 }
